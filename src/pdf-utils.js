@@ -8,10 +8,21 @@ import markdownpdf from 'markdown-pdf';
  * @param {string} outputPath - The path to save the PDF file
  * @returns {Promise<string>} - The path to the generated PDF file
  */
-export async function generatePDFReport(markdownContent, outputPath) {
+export async function generatePDFReport(markdownContent, outputPath, websiteUrl = '') {
   try {
-    // Add header with creator information
-    const headerInfo = `# Security Scan Report
+    // Extract domain name from the URL if provided
+    let domainName = '';
+    if (websiteUrl) {
+      try {
+        domainName = new URL(websiteUrl).hostname;
+      } catch (e) {
+        console.warn('Could not parse website URL:', e);
+        domainName = websiteUrl; // Use as-is if parsing fails
+      }
+    }
+    
+    // Add header with creator information and website name
+    const headerInfo = `# Security Scan Report${domainName ? ` for ${domainName}` : ''}
 
 *Created by: Ayash Ahmad*  
 *Email: bhatashu666@gmail.com*

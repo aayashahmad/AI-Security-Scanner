@@ -10,6 +10,7 @@ import { generatePDFReport } from './pdf-utils.js';
 import pLimit from 'p-limit';
 import http from 'http';
 import { WebSocketServer } from 'ws';
+import { spawn } from 'child_process';
 
 dotenv.config();
 
@@ -134,7 +135,7 @@ app.post('/scan', async (req, res) => {
     
     // Generate PDF report
     const pdfPath = path.join(config.OUTPUT_DIR, `scan-report-${timestamp}.pdf`);
-    await generatePDFReport(summary, pdfPath);
+    await generatePDFReport(summary, pdfPath, req.body.url);
     
     // Prepare issues breakdown
     const issuesBreakdown = {
@@ -190,7 +191,51 @@ app.get('/download', async (req, res) => {
   }
 });
 
+/**
+ * Start the Python bridge for deep security analysis
+ */
+function startPythonBridge() {
+  try {
+    const pythonBridgePath = path.join(__dirname, 'python', 'bridge.py');
+    console.log(`Starting Python bridge from: ${pythonBridgePath}`);
+    
+    // Start the Python bridge process
+    const pythonProcess = spawn('python3', [pythonBridgePath]);
+    
+    // Handle process output
+    pythonProcess.stdout.on('data', (data) => {
+      console.log(`Python bridge: ${data}`);
+    });
+    
+    pythonProcess.stderr.on('data', (data) => {
+      console.error(`Python bridge error: ${data}`);
+    });
+    
+    pythonProcess.on('close', (code) => {
+      console.log(`Python bridge process exited with code ${code}`);
+      // Restart the bridge if it crashes
+      if (code !== 0) {
+        console.log('Restarting Python bridge...');
+        setTimeout(startPythonBridge, 5000); // Restart after 5 seconds
+      }
+    });
+    
+    return pythonProcess;
+  } catch (error) {
+    console.error('Failed to start Python bridge:', error);
+    return null;
+  }
+}
+
 // Start the server
 server.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
+  
+  // Start the Python bridge
+  const pythonBridge = startPythonBridge();
+  if (pythonBridge) {
+    console.log('Python bridge started successfully');
+  } else {
+    console.warn('Python bridge failed to start. Deep analysis features will be limited.');
+  }
 });

@@ -75,14 +75,152 @@ Provide your analysis in markdown format.
  * @returns {string} - Generated analysis and recommendations
  */
 export async function analyzeWithAI(results) {
-  // Always use the fallback summary generation
-  console.log("Using built-in summary generation.");
-  return generateFallbackSummary(results);
-  
-  // Note: OpenAI integration has been removed to avoid compatibility issues
-  // If you want to add AI capabilities in the future, you can implement
-  // the OpenAI SDK integration here
+  try {
+    // Try to use the Python deep analyzer first
+    console.log("Attempting to use Python deep analyzer...");
+    const pythonAnalysis = await callPythonAnalyzer(results);
+    
+    if (pythonAnalysis && !pythonAnalysis.error) {
+      console.log("Successfully used Python deep analyzer.");
+      return generateEnhancedSummary(results, pythonAnalysis);
+    } else {
+      console.log("Python analyzer failed or not available. Using fallback.");
+      if (pythonAnalysis?.error) {
+        console.error("Python analyzer error:", pythonAnalysis.error);
+      }
+      return generateFallbackSummary(results);
+    }
+  } catch (error) {
+    console.error("Error in AI analysis:", error);
+    return generateFallbackSummary(results);
+  }
+}
 
+/**
+ * Generate a fallback summary when AI analysis is not available
+ * @param {Array} results - Security scan results
+ * @returns {string} - Generated summary
+ */
+/**
+ * Call the Python deep analyzer bridge to get enhanced analysis
+ * @param {Array} results - Security scan results
+ * @returns {Object} - Enhanced analysis from Python
+ */
+async function callPythonAnalyzer(results) {
+  try {
+    // Call the Python bridge API
+    const response = await fetch('http://localhost:3002/analyze', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(results),
+      timeout: 30000 // 30 second timeout
+    });
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
+    return await response.json();
+  } catch (error) {
+    console.error('Error calling Python analyzer:', error);
+    return { error: error.message, status: 'failed' };
+  }
+}
+
+/**
+ * Generate an enhanced summary using Python deep analyzer results
+ * @param {Array} results - Original security scan results
+ * @param {Object} pythonAnalysis - Enhanced analysis from Python
+ * @returns {string} - Generated enhanced summary
+ */
+function generateEnhancedSummary(results, pythonAnalysis) {
+  const totalUrls = results.length;
+  const domain = results[0]?.url ? new URL(results[0].url).hostname : "the website";
+  
+  // Use the enhanced issues if available
+  const enhancedIssues = pythonAnalysis.enhanced_issues || [];
+  
+  // Use the Python-generated risk level and score
+  const riskLevel = pythonAnalysis.risk_level || "medium";
+  const riskScore = pythonAnalysis.risk_score || 50;
+  
+  // Use the Python-generated recommendations or fall back to default ones
+  const recommendations = pythonAnalysis.recommendations || [
+    "Implement all missing security headers in your web server configuration.",
+    "Ensure all pages are served over HTTPS with proper certificates.",
+    "Review and update all cookies with proper security flags."
+  ];
+  
+  // Use the severity counts from Python analysis
+  const issuesBySeverity = pythonAnalysis.severity_counts || {
+    critical: 0,
+    high: 0,
+    medium: 0,
+    low: 0
+  };
+  
+  // Group issues by type for the summary
+  const issuesByType = {};
+  enhancedIssues.forEach(issue => {
+    const id = issue.id;
+    if (!issuesByType[id]) {
+      issuesByType[id] = {
+        count: 0,
+        severity: issue.severity,
+        details: issue.details
+      };
+    }
+    issuesByType[id].count++;
+  });
+  
+  // Sort issues by severity and then by count
+  const sortedIssues = Object.entries(issuesByType)
+    .map(([id, data]) => ({ id, ...data }))
+    .sort((a, b) => {
+      const severityOrder = { critical: 0, high: 1, medium: 2, low: 3 };
+      if (severityOrder[a.severity] !== severityOrder[b.severity]) {
+        return severityOrder[a.severity] - severityOrder[b.severity];
+      }
+      return b.count - a.count;
+    });
+  
+  // Generate the enhanced summary
+  return `
+## Enhanced Security Scan Summary
+
+### Executive Summary
+
+The deep security scan of ${domain} revealed an overall security score of **${Math.round(riskScore)}%** with a **${riskLevel.toUpperCase()}** risk level. The scan identified ${issuesBySeverity.critical} critical, ${issuesBySeverity.high} high, ${issuesBySeverity.medium} medium, and ${issuesBySeverity.low} low severity issues across ${totalUrls} URLs.
+
+### Key Findings
+
+${sortedIssues.slice(0, 5).map(issue => `- **${issue.id}** (${issue.severity}): ${issue.details} - Found on ${issue.count} pages`).join("\n")}
+
+### Top Recommendations
+
+${recommendations.slice(0, 5).map((rec, i) => `${i + 1}. ${rec}`).join("\n")}
+
+### Remediation Steps
+
+1. **Critical Vulnerabilities**: Address all critical vulnerabilities immediately.
+   - Fix SQL injection vulnerabilities by using parameterized queries
+   - Resolve path traversal issues by validating and sanitizing all file paths
+   - Patch XSS vulnerabilities by implementing proper output encoding
+
+2. **Security Headers**: Implement all missing security headers in your web server configuration.
+   - Add Content-Security-Policy to restrict resource loading
+   - Enable Strict-Transport-Security with a long max-age
+   - Set X-Content-Type-Options to nosniff
+
+3. **Data Protection**: Ensure sensitive data is properly protected.
+   - Remove sensitive data from client-side code
+   - Encrypt all sensitive data in transit and at rest
+   - Implement proper access controls for sensitive information
+
+This enhanced analysis was generated using advanced security scanning techniques. For a more comprehensive assessment, consider engaging a security professional.
+`;
 }
 
 /**

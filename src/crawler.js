@@ -240,13 +240,23 @@ export async function fetchPage(url, origin) {
       }
     }
 
-    return { url, status: response.statusCode, issues, links };
+    // Include headers and content in the result for deep analysis
+    return { 
+      url, 
+      status: response.statusCode, 
+      issues, 
+      links,
+      headers: response.headers,
+      content: ctype.includes("text/html") ? response.data : null
+    };
   } catch (e) {
     return { 
       url, 
       status: "error", 
       issues: [formatIssue("request_failed", "medium", e.message)], 
-      links: [] 
+      links: [],
+      headers: {},
+      content: null
     };
   }
 }
