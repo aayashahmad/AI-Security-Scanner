@@ -1,0 +1,49 @@
+[
+  {
+    "url": "https://www.udemy.com",
+    "issues": [
+      {
+        "id": "missing_hsts",
+        "severity": "high",
+        "details": "Add Strict-Transport-Security"
+      },
+      {
+        "id": "missing_csp",
+        "severity": "high",
+        "details": "Add Content-Security-Policy"
+      }
+    ],
+    "links": [],
+    "headers": {
+      "date": "Tue, 02 Sep 2025 06:25:43 GMT",
+      "content-type": "text/html; charset=UTF-8",
+      "content-length": "7000",
+      "connection": "close",
+      "accept-ch": "Sec-CH-UA-Bitness, Sec-CH-UA-Arch, Sec-CH-UA-Full-Version, Sec-CH-UA-Mobile, Sec-CH-UA-Model, Sec-CH-UA-Platform-Version, Sec-CH-UA-Full-Version-List, Sec-CH-UA-Platform, Sec-CH-UA, UA-Bitness, UA-Arch, UA-Full-Version, UA-Mobile, UA-Model, UA-Platform-Version, UA-Platform, UA",
+      "cf-mitigated": "challenge",
+      "critical-ch": "Sec-CH-UA-Bitness, Sec-CH-UA-Arch, Sec-CH-UA-Full-Version, Sec-CH-UA-Mobile, Sec-CH-UA-Model, Sec-CH-UA-Platform-Version, Sec-CH-UA-Full-Version-List, Sec-CH-UA-Platform, Sec-CH-UA, UA-Bitness, UA-Arch, UA-Full-Version, UA-Mobile, UA-Model, UA-Platform-Version, UA-Platform, UA",
+      "cross-origin-embedder-policy": "require-corp",
+      "cross-origin-opener-policy": "same-origin",
+      "cross-origin-resource-policy": "same-origin",
+      "origin-agent-cluster": "?1",
+      "permissions-policy": "accelerometer=(),autoplay=(),browsing-topics=(),camera=(),clipboard-read=(),clipboard-write=(),geolocation=(),gyroscope=(),hid=(),interest-cohort=(),magnetometer=(),microphone=(),payment=(),publickey-credentials-get=(),screen-wake-lock=(),serial=(),sync-xhr=(),usb=()",
+      "referrer-policy": "same-origin",
+      "server-timing": "chlray;desc=\"978aee8898793292\"",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "cache-control": "private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0",
+      "expires": "Thu, 01 Jan 1970 00:00:01 GMT",
+      "set-cookie": [
+        "__cf_bm=FKLpHCzReo8wx2WJO6XbPMJ_mIzo4cTCLB2OuIyFtwE-1756794343-1.0.1.1-c5nhbUPS4.to1ORnqIcOFIKXXFHjMT4OxhyR7IcHkjPsSoXGdNr2s89PTK6IHAtQwL6VQEgzbhZ7Wv7nDkB1.orFWyEU60a5A0cj3ZT0VDI; path=/; expires=Tue, 02-Sep-25 06:55:43 GMT; domain=.udemy.com; HttpOnly; Secure; SameSite=None"
+      ],
+      "server": "cloudflare",
+      "cf-ray": "978aee8898793292-DEL"
+    },
+    "content": "<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><style>*{box-sizing:border-box;margin:0;padding:0}html{line-height:1.15;-webkit-text-size-adjust:100%;color:#313131;font-family:system-ui,-apple-system,BlinkMacSystemFont,\"Segoe UI\",Roboto,\"Helvetica Neue\",Arial,\"Noto Sans\",sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\",\"Segoe UI Symbol\",\"Noto Color Emoji\"}body{display:flex;flex-direction:column;height:100vh;min-height:100vh}.main-content{margin:8rem auto;padding-left:1.5rem;max-width:60rem}@media (width <= 720px){.main-content{margin-top:4rem}}.h2{line-height:2.25rem;font-size:1.5rem;font-weight:500}@media (width <= 720px){.h2{line-height:1.5rem;font-size:1.25rem}}#challenge-error-text{background-image:url(\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgZmlsbD0ibm9uZSI+PHBhdGggZmlsbD0iI0IyMEYwMyIgZD0iTTE2IDNhMTMgMTMgMCAxIDAgMTMgMTNBMTMuMDE1IDEzLjAxNSAwIDAgMCAxNiAzbTAgMjRhMTEgMTEgMCAxIDEgMTEtMTEgMTEuMDEgMTEuMDEgMCAwIDEtMTEgMTEiLz48cGF0aCBmaWxsPSIjQjIwRjAzIiBkPSJNMTcuMDM4IDE4LjYxNUgxNC44N0wxNC41NjMgOS41aDIuNzgzem0tMS4wODQgMS40MjdxLjY2IDAgMS4wNTcuMzg4LjQwNy4zODkuNDA3Ljk5NCAwIC41OTYtLjQwNy45ODQtLjM5Ny4zOS0xLjA1Ny4zODktLjY1IDAtMS4wNTYtLjM4OS0uMzk4LS4zODktLjM5OC0uOTg0IDAtLjU5Ny4zOTgtLjk4NS40MDYtLjM5NyAxLjA1Ni0uMzk3Ii8+PC9zdmc+\");background-repeat:no-repeat;background-size:contain;padding-left:34px}@media (prefers-color-scheme: dark){body{background-color:#222;color:#d9d9d9}}</style><meta http-equiv=\"refresh\" content=\"360\"></head><body><div class=\"main-wrapper\" role=\"main\"><div class=\"main-content\"><noscript><div class=\"h2\"><span id=\"challenge-error-text\">Enable JavaScript and cookies to continue</span></div></noscript></div></div><script>(function(){window._cf_chl_opt = {cvId: '3',cZone: 'www.udemy.com',cType: 'managed',cRay: '978aee8898793292',cH: 'wBVj_CyPhQgPWXjfX0K17YP_kJq1uQzOzkiJGS8MHF0-1756794343-1.2.1.1-rVczJ83JBeA5H9Mtd2valTdUloo3.KygLr10JBAJ36vNaiu8zvkebk7wjTAkm.wO',cUPMDTk:\"\\/?__cf_chl_tk=s1tT.xtxvW5NJ0W9Q967bRBPsIP6uIU1Ny0Y64Bvn5A-1756794343-1.0.1.1-xle6qH3iZJmmCJdMH7r5EiHGJiQ2x0l1f6iqjaN5sj0\",cFPWv: 'b',cITimeS: '1756794343',cTplC:0,cTplV:5,cTplB: 'cf',fa:\"\\/?__cf_chl_f_tk=s1tT.xtxvW5NJ0W9Q967bRBPsIP6uIU1Ny0Y64Bvn5A-1756794343-1.0.1.1-xle6qH3iZJmmCJdMH7r5EiHGJiQ2x0l1f6iqjaN5sj0\",md: 'aobQYXW2B1wmsw10dIITyK5tRsqARR0qYYxWgjRh508-1756794343-1.2.1.1-toJawRtGCHImbmF2zIFRHqzwdnqVrVz4j95NRg40yTi5hDtuP.V7CzwwvTaSjs0kIv.yRViMyBg7YJNLXGzMKp9X1NluuRteB7STtvKm0hZtRQ7rEm4WGakdjHc7uAfFdWUzS.OnwpeadDq0VrfV5Ku.YQIPBdPMib_XL7TGxk54A0rNKyxVUv51lCvwBQ4ZefLbCBXV_xAX863VgB4k_9UTpRbyKHsaw3lQ67_pHXtAh0n_MlpAPeONE5myKFnrkXnM07z3yQpKKB_dWljMyBnVGyuPo5H9PencDEzVQjhyxFMz8Jyw.E2dP.YpI4TjVHBM2f3pkSpmvmLgFtx41Vv169xpkFscMl6Tp0Drl0sfgBg0M5ShnIOIVEkUXoMAe4AokSc_tLmc_NupfJpw6Qzn7VxvGnAPAn6F4_MMKYDGpL7b2v6sAtvjrOA6gHkBNB_QIOcjxEUSF9w99_l4Jo_.oy.zRC4Zov_3Sbwoemc_w4R7Kl1SJxDSra17ACAp_Uy223LbmDeB8pz3PgUFYYuRziLn7pKT6dewcU4GmAzJh.TZBGJ_.wzJ3DAfdKzkbFpJhpp6d.8vduaNTUVdPhuybZ994uhY79jObg8Y2xxDkDkZM7Gqmr7z_wUOo2UQU57jYlh0bFnSyrXgPSmTj.Ao9nrvAEoPDu1ScO3Z.0rIecjjhJgEwghdPBg.ItD9s_rBt2XKoMXBbz_uFexRaEW0dDCcqIZ4qfq3TgLRbWk.6SQ36Bthfm2O0WCpWp3ssFrPuM9tp5mnahpQWJIOu2iF6Nj3bXaJP69p1IxMmYh88EeQS2F88XpcbO_t2kt4RtVaFYQlVtJQ1gEs.WVLFMXgrQJCRZX0S95X.ltp8Ay2velBuNTcZkPRt6F1nTrvvQwshCIlFGFAq3p0rom4GFOwHTg1yHx76kq9l9KQXyKk0jEB.kxDV4iaOD60KgX8iwUGLRvznFiL.3sUymdA1Ld7TNP2ivQXTFu.77QLSEGZdcibThEuxZIFAkHv3nn6',mdrd: 'dpYZm7JiE_cjnmVL1OQY5MwWmSITmoO5cJPEYOjqEt8-1756794343-1.2.1.1-zQ4vaKaKEJefOjHCO5UuDb1XW7vsDbGy4V86N3uQQZuRmSUXl_qCV7fH19dTj8lj7jbMe4DYxJxS5ytPiei.lPNiOGPXPoSCYef6RSHQEzjgDUJscl_jME61iMLUydL4v6OS8esPR4LeWSBfLGTGXHG4Il5lo4G3tPW3HuQ0CRWrBRG20dQ0g1ZG11FTyTvF9lT9aDsVgzFlTd7nI7rnMuzvaYj.YzUAuBHFGA9s0ILHOV60krjuPxWn3Rt.ocS9.56IKm01j336pU2bf4CSMG8tvDjRVk78FbTVCjrLPpdCghgYQYr2ddpMQFRTHo_lMZQ_I8Ik3OxvGQUvXgFxRqW4Hw1k6t7pvK5ldoX2Dvs0u6k8FGK44.mjkK.oEcdHtba_XDxE4IcU_fav0j.Jt_Qcz6AhTg1qfz1TYeLdsnaT9_09v3E8MXiuzo6KQcLg6IyIIYTyUUMgcb0ysMyEQnwAEhhYR6gBU6PBQ176j.._E5qwKF.1pzHuRBkw4EcO9Y9dYXvSnPU9x9gSsP11FnQP99_e1KGiY8N2aQPlt1agisp4ub0mFBstZG4KKHsLgYaNa1.TFF_JiwiIFSn81t8M2rpq.2MNVFqW2Zvz6Rf8mQZPvphbJ1N3.eOjT6oCDKzXbvxUUQf6CXI0RDSAbvUE5QBe6Kbm0CsiJ5RKTfH9v_nqX1btmZ6EuwULDgCR4ez_CPyytWjkY4VzmRU3yrmX1Gcy8X4clMPzqJPlCM1GUT3epQBzBKFUGlykpB0tcrFPOa8RewLuV_m6UydYv8eCArqA_ZUWfECFawfkQhLLrn.UrdQu2neMGqJodhDmR_Umv60JLmTr_.yKpeog_21FjOE.m3UUHfsdKrj1D3tUjP4DD5r07sk_2uzM4dH9hM4FgvJpxyRfGMwIcjMAfE_nxdElVOeHn4iYk8wA4maYIetTLHWiHY99aMHNajKksTqHPrnZMTivW3YHJm7RmyaP1hnn6Q8yX3mVmfFyhKYgMuh63qdMFWFAYsllZlOkE5FAWw14G6OCg7wQ8xEl06ZuT6rortXTvMHr8znw70bcD7nV8qacKWXMKflaDII4a_FOZ8QQz.N_.T9Fxbjikq2PStTDbwXmwenogcEc4HtpLqaftcdLE48RMcj.f4I56LJPiu_tFJzQUR94_cOXKdl4wOkEPhyYn_Vq.xIj.w_CS1ux8Cw34FVl9ErN0VMhHmI5d185_nhBgkL_pWWo4qr.3vWEYHm.aaGnTXIVSxB1JXyFJA_hKbn.dV2KWZMtwcLykyspBpYQXcvtddAIra4r6f5m3h_NIyCxFK7v4M7VUPiwZfX0d5ECT3Re66KBY4uEfghXYRaQaYxrP0W8yNigzq83Oml8U0xLmq8QRF9dLUFFGSxZQjSeFKBLtmBkHAgEMTIQUCO1NqhnDpCOZVLkG0QdVlLUfyFOCkby5tBP37dX5eq3LtObbuv60JrVH0rEshZZwDAXTjl4_nHYCIp4qGsR_r8UJhWPgggsBJwpfVwVtDp9.zIWCBG3KzgST4jGr0k63mHeDSMN3hup46Ryhz5hVQSbkeJxYKQyXpzmyAluk6.lYhRJOE4i8bD84xRfI4g1vH7FRMgce9uQMyxHD96UKKTeeqvMnSkzYdeuyNpOE97qvQKBJlXHLehpKrVxC8vulNYPIJsC4Mbcw0zQL3A1CJC0oakVk8q8QQc2zylJwdL4lPkE_d7Us3rEZUzrcax.zb7HlNvrHKSLYtnQMe3HaaKLhafICjXh8FbzfGJLm0anju4vn_nOpr66hrJeuPnyWxzZ4RHa5Or0N1lByOtNPjnhFYcaBTzqgVHojTRlf3HH9AwFPMnWDwtpuhv6mUYYQZBTg9Kjna0Qs7mdGODvEKHuiDve6Dmr4WqEanChOq48m0Neo87WRLAAW_0CQgEPszA0iGoJEfg69URCHgcZGvw2WRq4_rhx80xzMvY90WXen7SFE_tJs6AlNrwpKZspvulAlVnfKZnwmN9sqy2rA7xqkcYEn6RAFYd6Bf_q.oXnv1z6ANH5pRVeZSFMEjm_gehZds.MhFsTtLhywTrFNeJz3bs6ojun1u.MzofHuhg0B6YmThWbd8h1KNb2ebxiGpXlotHy53tZoy0M4_PIcnw8PQ.tsDS31SUso9NoMEvVMtmCp05qt6QU59KBEinyZW23jUTOTd4rGpB2KPepgJ0B3p4tcWi3UWY7H0br1m6eAkKnNsC8MKYUYcm0OKhIPuGFTi3Dq57Geuz5ZDmGAxWMWoTf8VgbqI.U8p2.T5x6sbIocazP2mSzgZOOD2k1GoefCWk78BM40oVC86pXnAPf9396bqhJH1GOlALCTNjSk.wamvYMKJGJ1iJGkuokK_b.iT_panvUBg',};var a = document.createElement('script');a.src = '/cdn-cgi/challenge-platform/h/b/orchestrate/chl_page/v1?ray=978aee8898793292';window._cf_chl_opt.cOgUHash = location.hash === '' && location.href.indexOf('#') !== -1 ? '#' : location.hash;window._cf_chl_opt.cOgUQuery = location.search === '' && location.href.slice(0, location.href.length - window._cf_chl_opt.cOgUHash.length).indexOf('?') !== -1 ? '?' : location.search;if (window.history && window.history.replaceState) {var ogU = location.pathname + window._cf_chl_opt.cOgUQuery + window._cf_chl_opt.cOgUHash;history.replaceState(null, null,\"\\/?__cf_chl_rt_tk=s1tT.xtxvW5NJ0W9Q967bRBPsIP6uIU1Ny0Y64Bvn5A-1756794343-1.0.1.1-xle6qH3iZJmmCJdMH7r5EiHGJiQ2x0l1f6iqjaN5sj0\"+ window._cf_chl_opt.cOgUHash);a.onload = function() {history.replaceState(null, null, ogU);}}document.getElementsByTagName('head')[0].appendChild(a);}());</script></body></html>",
+    "score": {
+      "total": 120,
+      "penalty": 30,
+      "pct": 75
+    }
+  }
+]

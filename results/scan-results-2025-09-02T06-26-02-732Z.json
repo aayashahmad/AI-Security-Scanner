@@ -1,0 +1,21 @@
+[
+  {
+    "url": "https://www.udemy.comm",
+    "status": "error",
+    "issues": [
+      {
+        "id": "request_failed",
+        "severity": "medium",
+        "details": "getaddrinfo ENOTFOUND www.udemy.comm"
+      }
+    ],
+    "links": [],
+    "headers": {},
+    "content": null,
+    "score": {
+      "total": 120,
+      "penalty": 0,
+      "pct": 100
+    }
+  }
+]

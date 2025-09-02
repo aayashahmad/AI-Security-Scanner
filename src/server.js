@@ -72,7 +72,8 @@ app.post('/scan', async (req, res) => {
   try {
     const targetUrl = req.body.url;
     if (!targetUrl) {
-      return res.status(400).json({ error: 'URL is required' });
+      res.setHeader('Content-Type', 'application/json');
+      return res.status(400).send(JSON.stringify({ error: 'URL is required' }));
     }
 
     // Get max pages from request or use default
@@ -146,7 +147,8 @@ app.post('/scan', async (req, res) => {
     };
     
     // Return the results and file paths
-    res.json({
+    res.setHeader('Content-Type', 'application/json');
+    res.send(JSON.stringify({
       success: true,
       overallScore,
       issueCount: groupedIssues.length,
@@ -154,10 +156,11 @@ app.post('/scan', async (req, res) => {
       issuesBreakdown,
       summary,
       pdfPath: `/download?file=${encodeURIComponent(path.basename(pdfPath))}`
-    });
+    }));
   } catch (error) {
     console.error('Error during scan:', error);
-    res.status(500).json({ error: 'An error occurred during the scan' });
+    res.setHeader('Content-Type', 'application/json');
+    res.status(500).send(JSON.stringify({ error: 'An error occurred during the scan' }));
   }
 });
 
@@ -166,6 +169,7 @@ app.get('/download', async (req, res) => {
   try {
     const fileName = req.query.file;
     if (!fileName) {
+      res.setHeader('Content-Type', 'text/plain');
       return res.status(400).send('File name is required');
     }
     
@@ -175,6 +179,7 @@ app.get('/download', async (req, res) => {
     try {
       await fs.access(filePath);
     } catch (error) {
+      res.setHeader('Content-Type', 'text/plain');
       return res.status(404).send('File not found');
     }
     
@@ -184,9 +189,10 @@ app.get('/download', async (req, res) => {
     
     // Stream the file to the response
     const fileStream = await fs.readFile(filePath);
-    res.send(fileStream);
+    res.end(fileStream);
   } catch (error) {
     console.error('Error downloading file:', error);
+    res.setHeader('Content-Type', 'text/plain');
     res.status(500).send('An error occurred while downloading the file');
   }
 });
