@@ -29,134 +29,19 @@ export function sameOrigin(href, origin) {
 export function extractLinks(html, baseUrl, origin) {
   try {
     const $ = cheerio.load(html);
-    const links = new Set();
-    
-    // Extract links from anchor tags
-    $("a[href]").each((_, a) => {
-      try {
-        const href = $(a).attr("href");
-        if (href) {
-          const resolvedUrl = new URL(href, baseUrl).toString();
-          if (sameOrigin(resolvedUrl, origin)) {
-            links.add(resolvedUrl);
-          }
+    return $("a[href]")
+      .map((_, a) => {
+        try {
+          return new URL($(a).attr("href"), baseUrl).toString();
+        } catch {
+          return null;
         }
-      } catch (error) {
-        // Skip invalid URLs
-      }
-    });
-    
-    // Extract links from other elements that might contain URLs
-    // Forms
-    $("form[action]").each((_, form) => {
-      try {
-        const action = $(form).attr("action");
-        if (action) {
-          const resolvedUrl = new URL(action, baseUrl).toString();
-          if (sameOrigin(resolvedUrl, origin)) {
-            links.add(resolvedUrl);
-          }
-        }
-      } catch (error) {
-        // Skip invalid URLs
-      }
-    });
-    
-    // Image maps
-    $("area[href]").each((_, area) => {
-      try {
-        const href = $(area).attr("href");
-        if (href) {
-          const resolvedUrl = new URL(href, baseUrl).toString();
-          if (sameOrigin(resolvedUrl, origin)) {
-            links.add(resolvedUrl);
-          }
-        }
-      } catch (error) {
-        // Skip invalid URLs
-      }
-    });
-    
-    // Frames and iframes
-    $("frame[src], iframe[src]").each((_, frame) => {
-      try {
-        const src = $(frame).attr("src");
-        if (src) {
-          const resolvedUrl = new URL(src, baseUrl).toString();
-          if (sameOrigin(resolvedUrl, origin)) {
-            links.add(resolvedUrl);
-          }
-        }
-      } catch (error) {
-        // Skip invalid URLs
-      }
-    });
-    
-    return Array.from(links);
+      })
+      .get()
+      .filter(link => link && sameOrigin(link, origin));
   } catch (error) {
     console.error(`Error extracting links from ${baseUrl}:`, error);
     return [];
-  }
-}
-
-/**
- * Extract content from HTML that might be hidden or loaded dynamically
- * @param {string} html - HTML content
- * @param {string} baseUrl - Base URL for resolving relative links
- * @returns {Object} - Additional content and links
- */
-export function extractHiddenContent(html, baseUrl) {
-  try {
-    const $ = cheerio.load(html);
-    const additionalContent = [];
-    
-    // Look for content in hidden divs
-    $("div[style*='display:none'], div[style*='display: none'], div[hidden], .hidden, .d-none").each((_, el) => {
-      const content = $(el).text().trim();
-      if (content) {
-        additionalContent.push({
-          type: 'hidden_div',
-          content: content
-        });
-      }
-    });
-    
-    // Look for JavaScript URLs that might be used for navigation
-    const jsLinks = [];
-    $("a[href^='javascript:']").each((_, el) => {
-      const href = $(el).attr('href');
-      if (href) {
-        jsLinks.push(href);
-      }
-    });
-    
-    // Look for data attributes that might contain URLs
-    const dataUrls = [];
-    $("[data-url], [data-href], [data-src], [data-link]").each((_, el) => {
-      const dataUrl = $(el).attr('data-url') || $(el).attr('data-href') || 
-                     $(el).attr('data-src') || $(el).attr('data-link');
-      if (dataUrl) {
-        try {
-          const resolvedUrl = new URL(dataUrl, baseUrl).toString();
-          dataUrls.push(resolvedUrl);
-        } catch (error) {
-          // Skip invalid URLs
-        }
-      }
-    });
-    
-    return {
-      additionalContent,
-      jsLinks,
-      dataUrls
-    };
-  } catch (error) {
-    console.error(`Error extracting hidden content from ${baseUrl}:`, error);
-    return {
-      additionalContent: [],
-      jsLinks: [],
-      dataUrls: []
-    };
   }
 }
 
@@ -208,55 +93,16 @@ export async function fetchPage(url, origin) {
     let links = [];
     const ctype = (response.headers["content-type"] || "").toLowerCase();
     if (ctype.includes("text/html") && typeof response.data === "string") {
-      // Extract visible links
       links = extractLinks(response.data, url, origin);
-      
-      // Extract hidden content and potential additional links
-      const hiddenContent = extractHiddenContent(response.data, url);
-      
-      // Add data URLs to links if they're from the same origin
-      hiddenContent.dataUrls.forEach(dataUrl => {
-        if (sameOrigin(dataUrl, origin) && !links.includes(dataUrl)) {
-          links.push(dataUrl);
-        }
-      });
-      
-      // Check for potential security issues in hidden content
-      if (hiddenContent.additionalContent.length > 0) {
-        issues.push(formatIssue(
-          "hidden_content", 
-          "low", 
-          `Found ${hiddenContent.additionalContent.length} hidden elements that might contain sensitive information`
-        ));
-      }
-      
-      // Check for JavaScript URLs (potential security risk)
-      if (hiddenContent.jsLinks.length > 0) {
-        issues.push(formatIssue(
-          "javascript_urls", 
-          "medium", 
-          `Found ${hiddenContent.jsLinks.length} JavaScript URLs that might be used for malicious purposes`
-        ));
-      }
     }
 
-    // Include headers and content in the result for deep analysis
-    return { 
-      url, 
-      status: response.statusCode, 
-      issues, 
-      links,
-      headers: response.headers,
-      content: ctype.includes("text/html") ? response.data : null
-    };
+    return { url, status: response.statusCode, issues, links };
   } catch (e) {
     return { 
       url, 
       status: "error", 
       issues: [formatIssue("request_failed", "medium", e.message)], 
-      links: [],
-      headers: {},
-      content: null
+      links: [] 
     };
   }
 }

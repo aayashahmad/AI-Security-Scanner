@@ -25,19 +25,13 @@ An authorized-only AI security agent that crawls website URLs, runs security che
 ## Installation
 
 1. Clone this repository
-2. Install Node.js dependencies:
+2. Install dependencies:
 
 ```bash
 npm install
 ```
 
-3. Install Python dependencies for deep analysis:
-
-```bash
-pip install -r src/python/requirements.txt
-```
-
-4. Create a `.env` file with your configuration (see `.env.example`)
+3. Create a `.env` file with your configuration (see `.env.example`)
 
 ## Usage
 
@@ -109,24 +103,12 @@ The final score is calculated as: (passedWeight / totalWeight) * 100, with penal
 
 ## AI Analysis
 
-The agent uses AI to enhance security analysis in two ways:
+When an OpenAI API key is provided, the agent uses AI to:
 
-### JavaScript Analysis
-
-The built-in JavaScript analyzer:
-- Summarizes security findings
-- Groups duplicate issues
-- Suggests defensive remediations
-- Generates an executive summary
-
-### Python Deep Analysis
-
-The Python integration provides deeper security analysis:
-- Advanced pattern matching for vulnerabilities (SQL injection, XSS, etc.)
-- Hidden content discovery and analysis
-- Enhanced header security analysis
-- More detailed recommendations based on discovered issues
-- Risk scoring with severity-based weighting
+- Summarize security findings
+- Group duplicate issues
+- Suggest defensive remediations
+- Generate an executive summary
 
 ## License
 
