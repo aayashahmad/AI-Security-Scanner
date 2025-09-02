@@ -1,0 +1,28 @@
+[
+  {
+    "url": "https://bracecodes.in",
+    "issues": [
+      {
+        "id": "missing_hsts",
+        "severity": "high",
+        "details": "Add Strict-Transport-Security"
+      },
+      {
+        "id": "missing_csp",
+        "severity": "high",
+        "details": "Add Content-Security-Policy"
+      },
+      {
+        "id": "x_content_type_options",
+        "severity": "medium",
+        "details": "Set X-Content-Type-Options: nosniff"
+      }
+    ],
+    "links": [],
+    "score": {
+      "total": 120,
+      "penalty": 35,
+      "pct": 71
+    }
+  }
+]

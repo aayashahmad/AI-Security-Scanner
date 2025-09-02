@@ -1,0 +1,38 @@
+[
+  {
+    "url": "https://yourdomain.com",
+    "issues": [
+      {
+        "id": "missing_hsts",
+        "severity": "high",
+        "details": "Add Strict-Transport-Security"
+      },
+      {
+        "id": "missing_referrer_policy",
+        "severity": "low",
+        "details": "Add Referrer-Policy"
+      },
+      {
+        "id": "missing_permissions_policy",
+        "severity": "low",
+        "details": "Add Permissions-Policy"
+      },
+      {
+        "id": "missing_corp",
+        "severity": "low",
+        "details": "Add Cross-Origin-Resource-Policy"
+      },
+      {
+        "id": "mixed_content",
+        "severity": "high",
+        "details": "Page contains mixed content (HTTP resources on HTTPS page)"
+      }
+    ],
+    "links": [],
+    "score": {
+      "total": 120,
+      "penalty": 35,
+      "pct": 71
+    }
+  }
+]
