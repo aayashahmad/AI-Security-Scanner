@@ -6,9 +6,7 @@ import { crawlWebsite } from '../src/crawler.js';
 import { groupIssuesByType, calculateOverallScore } from '../src/security-utils.js';
 import { analyzeWithAI } from '../src/ai-utils.js';
 import pLimit from 'p-limit';
-// Replace markdown-pdf with jspdf and html-to-text
-import { jsPDF } from 'jspdf';
-import { convert } from 'html-to-text';
+import markdownpdf from 'markdown-pdf';
 
 dotenv.config();
 
@@ -31,34 +29,31 @@ app.use(express.urlencoded({ extended: true }));
  */
 async function generatePDFBuffer(markdownContent) {
   try {
-    // Create a new PDF document
-    const doc = new jsPDF();
-    
     // Add header with creator information
-    doc.setFontSize(16);
-    doc.text('Security Scan Report', 20, 20);
+    const headerInfo = `# Security Scan Report
+
+*Created by: Ayash Ahmad*  
+*Email: bhatashu666@gmail.com*
+
+---
+
+`;
     
-    doc.setFontSize(12);
-    doc.text('Created by: Ayash Ahmad', 20, 30);
-    doc.text('Email: bhatashu666@gmail.com', 20, 40);
+    // Combine header with the original content
+    const contentWithHeader = headerInfo + markdownContent;
     
-    doc.line(20, 45, 190, 45);
-    
-    // Convert markdown to plain text for simplicity
-    const textOptions = {
-      wordwrap: 130,
-      preserveNewlines: true
-    };
-    
-    const text = convert(markdownContent, textOptions);
-    
-    // Add the content
-    doc.setFontSize(10);
-    const textLines = doc.splitTextToSize(text, 170);
-    doc.text(textLines, 20, 55);
-    
-    // Return the PDF as a buffer
-    return Buffer.from(doc.output('arraybuffer'));
+    // Convert markdown to PDF buffer
+    return new Promise((resolve, reject) => {
+      markdownpdf()
+        .from.string(contentWithHeader)
+        .to.buffer((err, buffer) => {
+          if (err) {
+            reject(err);
+            return;
+          }
+          resolve(buffer);
+        });
+    });
   } catch (error) {
     console.error('Error generating PDF report:', error);
     throw error;
@@ -117,7 +112,7 @@ app.post('/scan', async (req, res) => {
       pagesScanned: results.length,
       issuesBreakdown,
       summary,
-      pdfPath: `/download?file=${encodeURIComponent(pdfFileName)}`
+      pdfPath: `/download?file=${encodeURIComponent(pdfFileName)}&url=${encodeURIComponent(targetUrl)}&summary=${encodeURIComponent(summary)}`
     }));
   } catch (error) {
     console.error('Error during scan:', error);
