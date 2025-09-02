@@ -501,7 +501,9 @@
                     
                     // Set download link
                     if (data.pdfPath) {
-                        downloadLink.href = data.pdfPath;
+                        // Create full download URL with all required parameters
+                        const downloadUrl = `${data.pdfPath}&url=${encodeURIComponent(url)}&summary=${encodeURIComponent(data.summary)}`;
+                        downloadLink.href = downloadUrl;
                         downloadLink.style.display = 'inline-block';
                     }
                     
