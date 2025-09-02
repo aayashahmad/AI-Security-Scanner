@@ -1,0 +1,33 @@
+[
+  {
+    "url": "https://www.udemy.com",
+    "issues": [
+      {
+        "id": "missing_hsts",
+        "severity": "high",
+        "details": "Add Strict-Transport-Security"
+      },
+      {
+        "id": "missing_csp",
+        "severity": "high",
+        "details": "Add Content-Security-Policy"
+      },
+      {
+        "id": "missing_permissions_policy",
+        "severity": "low",
+        "details": "Add Permissions-Policy"
+      },
+      {
+        "id": "missing_corp",
+        "severity": "low",
+        "details": "Add Cross-Origin-Resource-Policy"
+      }
+    ],
+    "links": [],
+    "score": {
+      "total": 120,
+      "penalty": 40,
+      "pct": 67
+    }
+  }
+]
