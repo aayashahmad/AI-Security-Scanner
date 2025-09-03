@@ -318,9 +318,32 @@
                 </div>
                 
                 <div class="text-center">
-                    <a id="downloadLink" class="btn btn-success download-btn" style="display: none;">
-                        <i class="fas fa-file-pdf me-2"></i> Download PDF Report
-                    </a>
+                    <div class="download-section" id="downloadSection" style="display: none;">
+                        <h5 class="mb-3">Download Reports</h5>
+                        <div class="row justify-content-center">
+                            <div class="col-md-4 mb-2">
+                                <a id="downloadPdfLink" class="btn btn-success w-100 download-btn">
+                                    <i class="fas fa-file-pdf me-2"></i> PDF Report
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-2">
+                                <a id="downloadJsonLink" class="btn btn-info w-100 download-btn">
+                                    <i class="fas fa-file-code me-2"></i> JSON Data
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-2">
+                                <a id="downloadMdLink" class="btn btn-warning w-100 download-btn">
+                                    <i class="fas fa-file-alt me-2"></i> Markdown
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mt-3">
+                            <small class="text-muted">
+                                <i class="fas fa-info-circle me-1"></i>
+                                Reports include detailed security analysis, recommendations, and scan metadata
+                            </small>
+                        </div>
+                    </div>
                 </div>
             </div>
             
@@ -348,7 +371,10 @@
             const issuesBreakdown = document.getElementById('issuesBreakdown');
             const pagesValue = document.getElementById('pagesValue');
             const summaryContent = document.getElementById('summaryContent');
-            const downloadLink = document.getElementById('downloadLink');
+            const downloadSection = document.getElementById('downloadSection');
+            const downloadPdfLink = document.getElementById('downloadPdfLink');
+            const downloadJsonLink = document.getElementById('downloadJsonLink');
+            const downloadMdLink = document.getElementById('downloadMdLink');
             const scannedUrlDisplay = document.getElementById('scannedUrlDisplay');
             
             // WebSocket for real-time updates
@@ -365,7 +391,7 @@
                 try {
                     // Create WebSocket connection
                     const wsProtocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
-                    const wsUrl = `${wsProtocol}//${window.location.host}/scan-progress`;
+                    const wsUrl = `${wsProtocol}//${window.location.host}`;
                     socket = new WebSocket(wsUrl);
                     
                     socket.onopen = function() {
@@ -499,12 +525,27 @@
                     // Update summary
                     summaryContent.textContent = data.summary;
                     
-                    // Set download link
-                    if (data.pdfPath) {
-                        // Create full download URL with all required parameters
-                        const downloadUrl = `${data.pdfPath}&url=${encodeURIComponent(url)}&summary=${encodeURIComponent(data.summary)}`;
-                        downloadLink.href = downloadUrl;
-                        downloadLink.style.display = 'inline-block';
+                    // Set download links
+                    if (data.pdfPath || data.jsonPath || data.mdPath) {
+                        downloadSection.style.display = 'block';
+                        
+                        // PDF download
+                        if (data.pdfPath) {
+                            downloadPdfLink.href = data.pdfPath;
+                            downloadPdfLink.style.display = 'inline-block';
+                        }
+                        
+                        // JSON download
+                        if (data.jsonPath) {
+                            downloadJsonLink.href = data.jsonPath;
+                            downloadJsonLink.style.display = 'inline-block';
+                        }
+                        
+                        // Markdown download
+                        if (data.mdPath) {
+                            downloadMdLink.href = data.mdPath;
+                            downloadMdLink.style.display = 'inline-block';
+                        }
                     }
                     
                     // Re-enable scan button
@@ -547,8 +588,10 @@
                 pagesValue.textContent = '0';
                 summaryContent.textContent = '';
                 scannedUrlDisplay.textContent = '';
-                downloadLink.href = '#';
-                downloadLink.style.display = 'none';
+                downloadSection.style.display = 'none';
+                downloadPdfLink.href = '#';
+                downloadJsonLink.href = '#';
+                downloadMdLink.href = '#';
             }
             
             function showError(message) {
