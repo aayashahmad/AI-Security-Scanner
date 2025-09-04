@@ -1,0 +1,638 @@
+{
+  "metadata": {
+    "scannedUrl": "https://kupos.cl",
+    "scanDate": "September 3, 2025 at 01:07 PM",
+    "timestamp": "2025-09-03T07-37-47-018Z",
+    "generatedBy": "Ayash Ahmad",
+    "contact": "bhatashu666@gmail.com",
+    "totalPages": 1,
+    "securityScore": 59,
+    "securityGrade": "C-",
+    "riskLevel": "HIGH",
+    "analysisVersion": "2.0",
+    "scanDuration": "0s"
+  },
+  "securityAnalysis": {
+    "executiveSummary": {
+      "grade": "C-",
+      "score": 59,
+      "riskLevel": "MEDIUM",
+      "keyFindings": [
+        "🟠 **HIGH**: 3 high-severity issues should be addressed within 48 hours"
+      ],
+      "topRecommendations": [],
+      "summary": "\n## Executive Security Assessment\n\n**Overall Security Grade: C- (59/100)**\n**Risk Level: MEDIUM**\n\n### Key Security Metrics\n- **Pages Scanned:** 1\n- **Total Security Issues:** 11\n- **Critical Vulnerabilities:** 0\n- **High-Risk Issues:** 3\n- **Average Response Time:** 244ms\n\n### Critical Findings\n🟠 **HIGH**: 3 high-severity issues should be addressed within 48 hours\n\n### Immediate Actions Required\n✅ No immediate actions required\n\n### Business Impact\n🟡 **LOW-MODERATE BUSINESS RISK**: Security improvements recommended to maintain good security posture.\n"
+    },
+    "technicalReport": "\n## Technical Security Analysis\n\n### Infrastructure Overview\n- **Domains Analyzed:** kupos.cl\n- **Technologies Detected:** \n- **Total Pages Scanned:** 1\n\n### Security Issues by Category\n\n#### Transport Security\n- **Total Issues:** 1\n- **Severity Breakdown:** \n  - Critical: 0\n  - High: 1\n  - Medium: 0\n  - Low: 0\n\n**Top Issues:**\n- Missing HSTS Header: HTTP Strict Transport Security (HSTS) header is missing, allowing potential downgrade attacks.\n\n#### Security Headers\n- **Total Issues:** 3\n- **Severity Breakdown:** \n  - Critical: 0\n  - High: 1\n  - Medium: 2\n  - Low: 0\n\n**Top Issues:**\n- Missing Content Security Policy: Content Security Policy (CSP) header is missing, making the site vulnerable to XSS attacks.\n- Missing Clickjacking Protection: No X-Frame-Options header or CSP frame-ancestors directive found.\n- Missing X-Content-Type-Options: X-Content-Type-Options header is missing or not set to nosniff.\n\n#### Privacy & Data Protection\n- **Total Issues:** 5\n- **Severity Breakdown:** \n  - Critical: 0\n  - High: 0\n  - Medium: 0\n  - Low: 4\n\n**Top Issues:**\n- Missing Referrer Policy: Referrer-Policy header is missing, potentially leaking sensitive information.\n- Missing Permissions Policy: Permissions-Policy header is missing, allowing unrestricted feature access.\n- Missing Cross-Origin Resource Policy: CORP header missing, allowing cross-origin resource access.\n\n#### Content Security\n- **Total Issues:** 1\n- **Severity Breakdown:** \n  - Critical: 0\n  - High: 1\n  - Medium: 0\n  - Low: 0\n\n**Top Issues:**\n- Mixed Content Detected: Found 1 HTTP resources on HTTPS page, creating security vulnerabilities.\n\n#### Server Configuration\n- **Total Issues:** 1\n- **Severity Breakdown:** \n  - Critical: 0\n  - High: 0\n  - Medium: 0\n  - Low: 1\n\n**Top Issues:**\n- HTTP Error 403: Server returned HTTP 403 error.\n\n### Performance Analysis\n- **Average Response Time:** 244ms\n- **Total Content Size:** 1KB\n- **Fastest Page:** 244ms\n- **Slowest Page:** 244ms\n\n### Security Score Distribution\n- A (90-100): 0 pages\n- B (80-89): 0 pages\n- C (70-79): 0 pages\n- D (60-69): 0 pages\n- F (0-59): 1 pages\n",
+    "riskAssessment": "\n## Risk Assessment Matrix\n\n### Overall Risk Score: 24\n\n### Risk Factors\n- **Critical Vulnerabilities:** 0 (Risk Score: 0)\n- **High Severity Issues:** 3 (Risk Score: 15)\n- **Medium Severity Issues:** 2 (Risk Score: 4)\n- **Low Severity Issues:** 5 (Risk Score: 5)\n\n### Risk by Category\n- **Transport Security:** 1 issues (Max Severity: HIGH)\n- **Security Headers:** 3 issues (Max Severity: HIGH)\n- **Privacy & Data Protection:** 5 issues (Max Severity: LOW)\n- **Content Security:** 1 issues (Max Severity: HIGH)\n- **Server Configuration:** 1 issues (Max Severity: LOW)\n\n### Risk Timeline\n\n- **Immediate (0-48 hours):** 0 critical issues\n- **Short-term (1-4 weeks):** 3 high-priority issues  \n- **Long-term (1-6 months):** 7 medium/low priority issues\n\n### Potential Business Impact\nModerate risk that could impact business operations and customer trust. Prioritize security improvements.\n",
+    "complianceReport": "\n## Security Compliance Assessment\n\n### OWASP Top 10 2021 Compliance\n**Score: 78%**\n⚠️ Needs improvement\n\n### General Data Protection Regulation (GDPR)\n**Score: 75%**\n⚠️ Privacy improvements needed\n\n### Payment Card Industry (PCI DSS)\n**Score: 100%**\n✅ Good compliance\n\n### ISO 27001 Security Controls\n**Score: 83.5%**\n✅ Good compliance\n\n### Compliance Summary\n- **Overall Compliance Score:** 78%\n- **Standards Met:** 39/50\n- **Critical Gaps:** 0\n",
+    "remediationPlan": "\n## Security Remediation Roadmap\n\n### Phase 1: Immediate Actions (0-48 hours)\n**Priority: CRITICAL**\n\n\n### Phase 2: Short-term Improvements (1-4 weeks)\n**Priority: HIGH**\n\n1. **Missing HSTS Header**\n   - Category: Transport Security\n   - Impact: HIGH\n   - Action: Add Strict-Transport-Security header with max-age of at least 31536000 seconds (1 year).\n\n2. **Missing Content Security Policy**\n   - Category: Security Headers\n   - Impact: HIGH\n   - Action: Implement a strict Content Security Policy to prevent XSS and data injection attacks.\n\n3. **Mixed Content Detected**\n   - Category: Content Security\n   - Impact: HIGH\n   - Action: Replace all HTTP resources with HTTPS equivalents.\n\n\n### Phase 3: Long-term Enhancements (1-6 months)\n**Priority: MEDIUM/LOW**\n\n1. **Missing Clickjacking Protection**\n   - Category: Security Headers\n   - Impact: MEDIUM\n   - Action: Add X-Frame-Options: DENY or SAMEORIGIN, or use CSP frame-ancestors directive.\n\n2. **Missing X-Content-Type-Options**\n   - Category: Security Headers\n   - Impact: MEDIUM\n   - Action: Set X-Content-Type-Options: nosniff to prevent MIME type sniffing.\n\n3. **Missing Referrer Policy**\n   - Category: Privacy & Data Protection\n   - Impact: LOW\n   - Action: Set Referrer-Policy to strict-origin-when-cross-origin or stricter.\n\n4. **Missing Permissions Policy**\n   - Category: Privacy & Data Protection\n   - Impact: LOW\n   - Action: Implement Permissions-Policy to control browser feature access.\n\n5. **Missing Cross-Origin Resource Policy**\n   - Category: Privacy & Data Protection\n   - Impact: LOW\n   - Action: Set Cross-Origin-Resource-Policy to same-site or same-origin as appropriate.\n\n6. **Missing Cross-Origin Embedder Policy**\n   - Category: Privacy & Data Protection\n   - Impact: INFO\n   - Action: Consider setting Cross-Origin-Embedder-Policy if using advanced features.\n\n7. **Missing Cross-Origin Opener Policy**\n   - Category: Privacy & Data Protection\n   - Impact: LOW\n   - Action: Set Cross-Origin-Opener-Policy to same-origin for better isolation.\n\n8. **HTTP Error 403**\n   - Category: Server Configuration\n   - Impact: LOW\n   - Action: Investigate server configuration and fix the underlying issue.\n\n\n### Implementation Timeline\n\n**Week 1-2:** Address all critical security vulnerabilities\n**Week 3-4:** Implement high-priority security improvements  \n**Month 2-3:** Deploy medium-priority enhancements\n**Month 4-6:** Complete long-term security initiatives\n\n### Resource Requirements\n\n**Estimated Effort:** 44 hours\n**Team Requirements:** Security engineer, DevOps engineer, Developer\n**Budget Considerations:** SSL certificates, security tools, potential consulting\n**Timeline:** 3-6 months for complete implementation\n",
+    "trendAnalysis": "\n## Security Trend Analysis\n\n### Current Security Posture\n- **Security Maturity Level:** Initial\n- **Most Common Issue Type:** Privacy & Data Protection\n- **Security Hotspots:** https://kupos.cl (11 issues)\n\n### Recommendations for Improvement\n• Consider adopting modern security frameworks and tools\n• Implement continuous security monitoring\n• Establish regular security training for development team\n",
+    "benchmarkComparison": "\n## Industry Benchmark Comparison\n\n### Security Score Comparison\n- **Your Score:** 59\n- **Industry Average:** 75\n- **Performance:** ⚠️ Below Average\n\n### Issue Density Comparison\n- **Your Issues per Page:** 11.0\n- **Industry Average:** 3.2\n- **Performance:** ⚠️ Worse than Average\n\n### Performance Comparison\n- **Your Response Time:** 244ms\n- **Industry Average:** 1200ms\n- **Performance:** ✅ Faster than Average\n",
+    "comprehensiveReport": "# Comprehensive Security Analysis Report\n\n**Generated:** September 3, 2025\n**Scan Target:** kupos.cl\n**Pages Analyzed:** 1\n\n---\n\n\n## Executive Security Assessment\n\n**Overall Security Grade: C- (59/100)**\n**Risk Level: MEDIUM**\n\n### Key Security Metrics\n- **Pages Scanned:** 1\n- **Total Security Issues:** 11\n- **Critical Vulnerabilities:** 0\n- **High-Risk Issues:** 3\n- **Average Response Time:** 244ms\n\n### Critical Findings\n🟠 **HIGH**: 3 high-severity issues should be addressed within 48 hours\n\n### Immediate Actions Required\n✅ No immediate actions required\n\n### Business Impact\n🟡 **LOW-MODERATE BUSINESS RISK**: Security improvements recommended to maintain good security posture.\n\n\n---\n\n\n## Technical Security Analysis\n\n### Infrastructure Overview\n- **Domains Analyzed:** kupos.cl\n- **Technologies Detected:** \n- **Total Pages Scanned:** 1\n\n### Security Issues by Category\n\n#### Transport Security\n- **Total Issues:** 1\n- **Severity Breakdown:** \n  - Critical: 0\n  - High: 1\n  - Medium: 0\n  - Low: 0\n\n**Top Issues:**\n- Missing HSTS Header: HTTP Strict Transport Security (HSTS) header is missing, allowing potential downgrade attacks.\n\n#### Security Headers\n- **Total Issues:** 3\n- **Severity Breakdown:** \n  - Critical: 0\n  - High: 1\n  - Medium: 2\n  - Low: 0\n\n**Top Issues:**\n- Missing Content Security Policy: Content Security Policy (CSP) header is missing, making the site vulnerable to XSS attacks.\n- Missing Clickjacking Protection: No X-Frame-Options header or CSP frame-ancestors directive found.\n- Missing X-Content-Type-Options: X-Content-Type-Options header is missing or not set to nosniff.\n\n#### Privacy & Data Protection\n- **Total Issues:** 5\n- **Severity Breakdown:** \n  - Critical: 0\n  - High: 0\n  - Medium: 0\n  - Low: 4\n\n**Top Issues:**\n- Missing Referrer Policy: Referrer-Policy header is missing, potentially leaking sensitive information.\n- Missing Permissions Policy: Permissions-Policy header is missing, allowing unrestricted feature access.\n- Missing Cross-Origin Resource Policy: CORP header missing, allowing cross-origin resource access.\n\n#### Content Security\n- **Total Issues:** 1\n- **Severity Breakdown:** \n  - Critical: 0\n  - High: 1\n  - Medium: 0\n  - Low: 0\n\n**Top Issues:**\n- Mixed Content Detected: Found 1 HTTP resources on HTTPS page, creating security vulnerabilities.\n\n#### Server Configuration\n- **Total Issues:** 1\n- **Severity Breakdown:** \n  - Critical: 0\n  - High: 0\n  - Medium: 0\n  - Low: 1\n\n**Top Issues:**\n- HTTP Error 403: Server returned HTTP 403 error.\n\n### Performance Analysis\n- **Average Response Time:** 244ms\n- **Total Content Size:** 1KB\n- **Fastest Page:** 244ms\n- **Slowest Page:** 244ms\n\n### Security Score Distribution\n- A (90-100): 0 pages\n- B (80-89): 0 pages\n- C (70-79): 0 pages\n- D (60-69): 0 pages\n- F (0-59): 1 pages\n\n\n---\n\n\n## Risk Assessment Matrix\n\n### Overall Risk Score: 24\n\n### Risk Factors\n- **Critical Vulnerabilities:** 0 (Risk Score: 0)\n- **High Severity Issues:** 3 (Risk Score: 15)\n- **Medium Severity Issues:** 2 (Risk Score: 4)\n- **Low Severity Issues:** 5 (Risk Score: 5)\n\n### Risk by Category\n- **Transport Security:** 1 issues (Max Severity: HIGH)\n- **Security Headers:** 3 issues (Max Severity: HIGH)\n- **Privacy & Data Protection:** 5 issues (Max Severity: LOW)\n- **Content Security:** 1 issues (Max Severity: HIGH)\n- **Server Configuration:** 1 issues (Max Severity: LOW)\n\n### Risk Timeline\n\n- **Immediate (0-48 hours):** 0 critical issues\n- **Short-term (1-4 weeks):** 3 high-priority issues  \n- **Long-term (1-6 months):** 7 medium/low priority issues\n\n### Potential Business Impact\nModerate risk that could impact business operations and customer trust. Prioritize security improvements.\n\n\n---\n\n\n## Security Compliance Assessment\n\n### OWASP Top 10 2021 Compliance\n**Score: 78%**\n⚠️ Needs improvement\n\n### General Data Protection Regulation (GDPR)\n**Score: 75%**\n⚠️ Privacy improvements needed\n\n### Payment Card Industry (PCI DSS)\n**Score: 100%**\n✅ Good compliance\n\n### ISO 27001 Security Controls\n**Score: 83.5%**\n✅ Good compliance\n\n### Compliance Summary\n- **Overall Compliance Score:** 78%\n- **Standards Met:** 39/50\n- **Critical Gaps:** 0\n\n\n---\n\n\n## Security Remediation Roadmap\n\n### Phase 1: Immediate Actions (0-48 hours)\n**Priority: CRITICAL**\n\n\n### Phase 2: Short-term Improvements (1-4 weeks)\n**Priority: HIGH**\n\n1. **Missing HSTS Header**\n   - Category: Transport Security\n   - Impact: HIGH\n   - Action: Add Strict-Transport-Security header with max-age of at least 31536000 seconds (1 year).\n\n2. **Missing Content Security Policy**\n   - Category: Security Headers\n   - Impact: HIGH\n   - Action: Implement a strict Content Security Policy to prevent XSS and data injection attacks.\n\n3. **Mixed Content Detected**\n   - Category: Content Security\n   - Impact: HIGH\n   - Action: Replace all HTTP resources with HTTPS equivalents.\n\n\n### Phase 3: Long-term Enhancements (1-6 months)\n**Priority: MEDIUM/LOW**\n\n1. **Missing Clickjacking Protection**\n   - Category: Security Headers\n   - Impact: MEDIUM\n   - Action: Add X-Frame-Options: DENY or SAMEORIGIN, or use CSP frame-ancestors directive.\n\n2. **Missing X-Content-Type-Options**\n   - Category: Security Headers\n   - Impact: MEDIUM\n   - Action: Set X-Content-Type-Options: nosniff to prevent MIME type sniffing.\n\n3. **Missing Referrer Policy**\n   - Category: Privacy & Data Protection\n   - Impact: LOW\n   - Action: Set Referrer-Policy to strict-origin-when-cross-origin or stricter.\n\n4. **Missing Permissions Policy**\n   - Category: Privacy & Data Protection\n   - Impact: LOW\n   - Action: Implement Permissions-Policy to control browser feature access.\n\n5. **Missing Cross-Origin Resource Policy**\n   - Category: Privacy & Data Protection\n   - Impact: LOW\n   - Action: Set Cross-Origin-Resource-Policy to same-site or same-origin as appropriate.\n\n6. **Missing Cross-Origin Embedder Policy**\n   - Category: Privacy & Data Protection\n   - Impact: INFO\n   - Action: Consider setting Cross-Origin-Embedder-Policy if using advanced features.\n\n7. **Missing Cross-Origin Opener Policy**\n   - Category: Privacy & Data Protection\n   - Impact: LOW\n   - Action: Set Cross-Origin-Opener-Policy to same-origin for better isolation.\n\n8. **HTTP Error 403**\n   - Category: Server Configuration\n   - Impact: LOW\n   - Action: Investigate server configuration and fix the underlying issue.\n\n\n### Implementation Timeline\n\n**Week 1-2:** Address all critical security vulnerabilities\n**Week 3-4:** Implement high-priority security improvements  \n**Month 2-3:** Deploy medium-priority enhancements\n**Month 4-6:** Complete long-term security initiatives\n\n### Resource Requirements\n\n**Estimated Effort:** 44 hours\n**Team Requirements:** Security engineer, DevOps engineer, Developer\n**Budget Considerations:** SSL certificates, security tools, potential consulting\n**Timeline:** 3-6 months for complete implementation\n\n\n---\n\n\n## Security Trend Analysis\n\n### Current Security Posture\n- **Security Maturity Level:** Initial\n- **Most Common Issue Type:** Privacy & Data Protection\n- **Security Hotspots:** https://kupos.cl (11 issues)\n\n### Recommendations for Improvement\n• Consider adopting modern security frameworks and tools\n• Implement continuous security monitoring\n• Establish regular security training for development team\n\n\n---\n\n\n## Industry Benchmark Comparison\n\n### Security Score Comparison\n- **Your Score:** 59\n- **Industry Average:** 75\n- **Performance:** ⚠️ Below Average\n\n### Issue Density Comparison\n- **Your Issues per Page:** 11.0\n- **Industry Average:** 3.2\n- **Performance:** ⚠️ Worse than Average\n\n### Performance Comparison\n- **Your Response Time:** 244ms\n- **Industry Average:** 1200ms\n- **Performance:** ✅ Faster than Average\n\n\n---\n\n## Appendix\n\n### Methodology\nThis security assessment was conducted using advanced automated scanning techniques combined with AI-powered analysis. The scan evaluated multiple security domains including:\n\n- Transport Layer Security (HTTPS/TLS)\n- Security Headers Implementation\n- Content Security Policies\n- Authentication and Session Management\n- Input Validation and Output Encoding\n- Information Disclosure Prevention\n- Server Configuration Security\n- Privacy and Data Protection Measures\n\n### Limitations\n- This is an automated assessment and may not identify all security vulnerabilities\n- Manual penetration testing is recommended for critical applications\n- Results are based on publicly accessible information only\n- Some issues may require additional context for accurate assessment\n\n### Next Steps\n1. Review and prioritize identified security issues\n2. Implement immediate fixes for critical vulnerabilities\n3. Develop a comprehensive security improvement plan\n4. Schedule regular security assessments\n5. Consider professional penetration testing for critical systems\n\n---\n\n*Report generated by AI Security Agent v2.0*\n*For questions or support, contact: bhatashu666@gmail.com*\n",
+    "metadata": {
+      "analysisDate": "2025-09-03T07:37:47.017Z",
+      "analysisVersion": "2.0",
+      "aiModel": "gpt-3.5-turbo",
+      "scanSummary": {
+        "criticalIssues": 0,
+        "highIssues": 3,
+        "mediumIssues": 2,
+        "lowIssues": 5,
+        "totalIssues": 11
+      }
+    }
+  },
+  "detailedResults": [
+    {
+      "url": "https://kupos.cl",
+      "originalUrl": "https://kupos.cl",
+      "status": 403,
+      "statusText": "Forbidden",
+      "headers": {
+        "server": "CloudFront",
+        "date": "Wed, 03 Sep 2025 07:37:47 GMT",
+        "content-type": "text/html",
+        "content-length": "919",
+        "connection": "keep-alive",
+        "x-cache": "Error from cloudfront",
+        "via": "1.1 18c8b7917bbaa0be51c9b59b1eef45a2.cloudfront.net (CloudFront)",
+        "x-amz-cf-pop": "DEL54-P7",
+        "x-amz-cf-id": "MnZKeMfsk4IfiAn4rSC-GCtYaEb5O5jmb_Te8QLF4h5QHprXk2HoxA=="
+      },
+      "redirectChain": [],
+      "contentType": "text/html",
+      "contentLength": 919,
+      "responseTime": 244,
+      "securityIssues": [
+        {
+          "id": "missing_hsts",
+          "severity": "high",
+          "severityScore": 75,
+          "category": "Transport Security",
+          "title": "Missing HSTS Header",
+          "description": "HTTP Strict Transport Security (HSTS) header is missing, allowing potential downgrade attacks.",
+          "recommendation": "Add Strict-Transport-Security header with max-age of at least 31536000 seconds (1 year).",
+          "cwe": "CWE-319",
+          "owasp": "A02:2021 – Cryptographic Failures",
+          "evidence": null,
+          "timestamp": "2025-09-03T07:37:46.976Z",
+          "risk": "HIGH"
+        },
+        {
+          "id": "missing_csp",
+          "severity": "high",
+          "severityScore": 75,
+          "category": "Security Headers",
+          "title": "Missing Content Security Policy",
+          "description": "Content Security Policy (CSP) header is missing, making the site vulnerable to XSS attacks.",
+          "recommendation": "Implement a strict Content Security Policy to prevent XSS and data injection attacks.",
+          "cwe": "CWE-79",
+          "owasp": "A03:2021 – Injection",
+          "evidence": null,
+          "timestamp": "2025-09-03T07:37:46.977Z",
+          "risk": "HIGH"
+        },
+        {
+          "id": "missing_clickjacking_protection",
+          "severity": "medium",
+          "severityScore": 50,
+          "category": "Security Headers",
+          "title": "Missing Clickjacking Protection",
+          "description": "No X-Frame-Options header or CSP frame-ancestors directive found.",
+          "recommendation": "Add X-Frame-Options: DENY or SAMEORIGIN, or use CSP frame-ancestors directive.",
+          "cwe": "CWE-1021",
+          "owasp": "A04:2021 – Insecure Design",
+          "evidence": null,
+          "timestamp": "2025-09-03T07:37:46.977Z",
+          "risk": "MEDIUM"
+        },
+        {
+          "id": "missing_content_type_options",
+          "severity": "medium",
+          "severityScore": 50,
+          "category": "Security Headers",
+          "title": "Missing X-Content-Type-Options",
+          "description": "X-Content-Type-Options header is missing or not set to nosniff.",
+          "recommendation": "Set X-Content-Type-Options: nosniff to prevent MIME type sniffing.",
+          "cwe": "CWE-79",
+          "owasp": null,
+          "evidence": null,
+          "timestamp": "2025-09-03T07:37:46.977Z",
+          "risk": "MEDIUM"
+        },
+        {
+          "id": "missing_referrer_policy",
+          "severity": "low",
+          "severityScore": 25,
+          "category": "Privacy & Data Protection",
+          "title": "Missing Referrer Policy",
+          "description": "Referrer-Policy header is missing, potentially leaking sensitive information.",
+          "recommendation": "Set Referrer-Policy to strict-origin-when-cross-origin or stricter.",
+          "cwe": "CWE-200",
+          "owasp": null,
+          "evidence": null,
+          "timestamp": "2025-09-03T07:37:46.977Z",
+          "risk": "LOW"
+        },
+        {
+          "id": "missing_permissions_policy",
+          "severity": "low",
+          "severityScore": 25,
+          "category": "Privacy & Data Protection",
+          "title": "Missing Permissions Policy",
+          "description": "Permissions-Policy header is missing, allowing unrestricted feature access.",
+          "recommendation": "Implement Permissions-Policy to control browser feature access.",
+          "cwe": "CWE-200",
+          "owasp": null,
+          "evidence": null,
+          "timestamp": "2025-09-03T07:37:46.977Z",
+          "risk": "LOW"
+        },
+        {
+          "id": "mixed_content",
+          "severity": "high",
+          "severityScore": 75,
+          "category": "Content Security",
+          "title": "Mixed Content Detected",
+          "description": "Found 1 HTTP resources on HTTPS page, creating security vulnerabilities.",
+          "recommendation": "Replace all HTTP resources with HTTPS equivalents.",
+          "cwe": "CWE-319",
+          "owasp": "A02:2021 – Cryptographic Failures",
+          "evidence": [
+            "http://"
+          ],
+          "timestamp": "2025-09-03T07:37:46.977Z",
+          "risk": "HIGH"
+        },
+        {
+          "id": "missing_corp",
+          "severity": "low",
+          "severityScore": 25,
+          "category": "Privacy & Data Protection",
+          "title": "Missing Cross-Origin Resource Policy",
+          "description": "CORP header missing, allowing cross-origin resource access.",
+          "recommendation": "Set Cross-Origin-Resource-Policy to same-site or same-origin as appropriate.",
+          "cwe": "CWE-200",
+          "owasp": null,
+          "evidence": null,
+          "timestamp": "2025-09-03T07:37:46.988Z",
+          "risk": "LOW"
+        },
+        {
+          "id": "missing_coep",
+          "severity": "info",
+          "severityScore": 0,
+          "category": "Privacy & Data Protection",
+          "title": "Missing Cross-Origin Embedder Policy",
+          "description": "COEP header missing, may affect SharedArrayBuffer and high-resolution timers.",
+          "recommendation": "Consider setting Cross-Origin-Embedder-Policy if using advanced features.",
+          "cwe": "CWE-200",
+          "owasp": null,
+          "evidence": null,
+          "timestamp": "2025-09-03T07:37:46.988Z",
+          "risk": "INFORMATIONAL"
+        },
+        {
+          "id": "missing_coop",
+          "severity": "low",
+          "severityScore": 25,
+          "category": "Privacy & Data Protection",
+          "title": "Missing Cross-Origin Opener Policy",
+          "description": "COOP header missing, allowing cross-origin window access.",
+          "recommendation": "Set Cross-Origin-Opener-Policy to same-origin for better isolation.",
+          "cwe": "CWE-200",
+          "owasp": null,
+          "evidence": null,
+          "timestamp": "2025-09-03T07:37:46.988Z",
+          "risk": "LOW"
+        },
+        {
+          "id": "http_error_403",
+          "severity": "low",
+          "severityScore": 25,
+          "category": "Server Configuration",
+          "title": "HTTP Error 403",
+          "description": "Server returned HTTP 403 error.",
+          "recommendation": "Investigate server configuration and fix the underlying issue.",
+          "cwe": "CWE-200",
+          "owasp": null,
+          "evidence": null,
+          "timestamp": "2025-09-03T07:37:46.988Z",
+          "risk": "LOW"
+        }
+      ],
+      "contentAnalysis": {
+        "issues": [
+          {
+            "id": "missing_viewport",
+            "severity": "info",
+            "severityScore": 0,
+            "category": "Server Configuration",
+            "title": "Missing Viewport Meta Tag",
+            "description": "Page lacks viewport meta tag for responsive design.",
+            "recommendation": "Add viewport meta tag for better mobile experience.",
+            "cwe": null,
+            "owasp": null,
+            "evidence": null,
+            "timestamp": "2025-09-03T07:37:46.990Z",
+            "risk": "INFORMATIONAL"
+          },
+          {
+            "id": "missing_utf8_charset",
+            "severity": "low",
+            "severityScore": 25,
+            "category": "Content Security",
+            "title": "Missing UTF-8 Charset Declaration",
+            "description": "Page lacks proper UTF-8 charset declaration.",
+            "recommendation": "Declare UTF-8 charset in meta tag or HTTP header.",
+            "cwe": "CWE-116",
+            "owasp": null,
+            "evidence": null,
+            "timestamp": "2025-09-03T07:37:46.991Z",
+            "risk": "LOW"
+          }
+        ],
+        "forms": [],
+        "inputs": [],
+        "scripts": [],
+        "title": "ERROR: The request could not be satisfied",
+        "metaTags": {
+          "Content-Type": "text/html; charset=iso-8859-1"
+        },
+        "wordCount": 84
+      },
+      "performanceMetrics": {
+        "responseTime": 242,
+        "contentSize": 919,
+        "transferRate": 3798,
+        "grade": "B"
+      },
+      "technologies": {
+        "server": [],
+        "frameworks": [],
+        "libraries": [],
+        "cms": [],
+        "analytics": []
+      },
+      "sslAnalysis": {
+        "valid": true,
+        "issuer": "Unknown",
+        "validFrom": null,
+        "validTo": null,
+        "protocol": "Unknown",
+        "cipher": "Unknown"
+      },
+      "links": [],
+      "resources": [],
+      "dnsInfo": {
+        "hostname": "kupos.cl",
+        "ipv4": "52.84.206.114",
+        "ipv6": "::ffff:52.84.206.114",
+        "resolutionTime": 1756885066853
+      },
+      "timestamp": "2025-09-03T07:37:46.994Z",
+      "securityScore": {
+        "score": 59,
+        "grade": "C-",
+        "risk": "HIGH",
+        "totalIssues": 11,
+        "criticalCount": 0,
+        "highCount": 3
+      }
+    }
+  ],
+  "aggregatedIssues": [
+    {
+      "id": "missing_hsts",
+      "severity": "high",
+      "severityScore": 75,
+      "category": "Transport Security",
+      "title": "Missing HSTS Header",
+      "description": "HTTP Strict Transport Security (HSTS) header is missing, allowing potential downgrade attacks.",
+      "recommendation": "Add Strict-Transport-Security header with max-age of at least 31536000 seconds (1 year).",
+      "cwe": "CWE-319",
+      "owasp": "A02:2021 – Cryptographic Failures",
+      "evidence": null,
+      "timestamp": "2025-09-03T07:37:46.976Z",
+      "risk": "HIGH"
+    },
+    {
+      "id": "missing_csp",
+      "severity": "high",
+      "severityScore": 75,
+      "category": "Security Headers",
+      "title": "Missing Content Security Policy",
+      "description": "Content Security Policy (CSP) header is missing, making the site vulnerable to XSS attacks.",
+      "recommendation": "Implement a strict Content Security Policy to prevent XSS and data injection attacks.",
+      "cwe": "CWE-79",
+      "owasp": "A03:2021 – Injection",
+      "evidence": null,
+      "timestamp": "2025-09-03T07:37:46.977Z",
+      "risk": "HIGH"
+    },
+    {
+      "id": "missing_clickjacking_protection",
+      "severity": "medium",
+      "severityScore": 50,
+      "category": "Security Headers",
+      "title": "Missing Clickjacking Protection",
+      "description": "No X-Frame-Options header or CSP frame-ancestors directive found.",
+      "recommendation": "Add X-Frame-Options: DENY or SAMEORIGIN, or use CSP frame-ancestors directive.",
+      "cwe": "CWE-1021",
+      "owasp": "A04:2021 – Insecure Design",
+      "evidence": null,
+      "timestamp": "2025-09-03T07:37:46.977Z",
+      "risk": "MEDIUM"
+    },
+    {
+      "id": "missing_content_type_options",
+      "severity": "medium",
+      "severityScore": 50,
+      "category": "Security Headers",
+      "title": "Missing X-Content-Type-Options",
+      "description": "X-Content-Type-Options header is missing or not set to nosniff.",
+      "recommendation": "Set X-Content-Type-Options: nosniff to prevent MIME type sniffing.",
+      "cwe": "CWE-79",
+      "owasp": null,
+      "evidence": null,
+      "timestamp": "2025-09-03T07:37:46.977Z",
+      "risk": "MEDIUM"
+    },
+    {
+      "id": "missing_referrer_policy",
+      "severity": "low",
+      "severityScore": 25,
+      "category": "Privacy & Data Protection",
+      "title": "Missing Referrer Policy",
+      "description": "Referrer-Policy header is missing, potentially leaking sensitive information.",
+      "recommendation": "Set Referrer-Policy to strict-origin-when-cross-origin or stricter.",
+      "cwe": "CWE-200",
+      "owasp": null,
+      "evidence": null,
+      "timestamp": "2025-09-03T07:37:46.977Z",
+      "risk": "LOW"
+    },
+    {
+      "id": "missing_permissions_policy",
+      "severity": "low",
+      "severityScore": 25,
+      "category": "Privacy & Data Protection",
+      "title": "Missing Permissions Policy",
+      "description": "Permissions-Policy header is missing, allowing unrestricted feature access.",
+      "recommendation": "Implement Permissions-Policy to control browser feature access.",
+      "cwe": "CWE-200",
+      "owasp": null,
+      "evidence": null,
+      "timestamp": "2025-09-03T07:37:46.977Z",
+      "risk": "LOW"
+    },
+    {
+      "id": "mixed_content",
+      "severity": "high",
+      "severityScore": 75,
+      "category": "Content Security",
+      "title": "Mixed Content Detected",
+      "description": "Found 1 HTTP resources on HTTPS page, creating security vulnerabilities.",
+      "recommendation": "Replace all HTTP resources with HTTPS equivalents.",
+      "cwe": "CWE-319",
+      "owasp": "A02:2021 – Cryptographic Failures",
+      "evidence": [
+        "http://"
+      ],
+      "timestamp": "2025-09-03T07:37:46.977Z",
+      "risk": "HIGH"
+    },
+    {
+      "id": "missing_corp",
+      "severity": "low",
+      "severityScore": 25,
+      "category": "Privacy & Data Protection",
+      "title": "Missing Cross-Origin Resource Policy",
+      "description": "CORP header missing, allowing cross-origin resource access.",
+      "recommendation": "Set Cross-Origin-Resource-Policy to same-site or same-origin as appropriate.",
+      "cwe": "CWE-200",
+      "owasp": null,
+      "evidence": null,
+      "timestamp": "2025-09-03T07:37:46.988Z",
+      "risk": "LOW"
+    },
+    {
+      "id": "missing_coep",
+      "severity": "info",
+      "severityScore": 0,
+      "category": "Privacy & Data Protection",
+      "title": "Missing Cross-Origin Embedder Policy",
+      "description": "COEP header missing, may affect SharedArrayBuffer and high-resolution timers.",
+      "recommendation": "Consider setting Cross-Origin-Embedder-Policy if using advanced features.",
+      "cwe": "CWE-200",
+      "owasp": null,
+      "evidence": null,
+      "timestamp": "2025-09-03T07:37:46.988Z",
+      "risk": "INFORMATIONAL"
+    },
+    {
+      "id": "missing_coop",
+      "severity": "low",
+      "severityScore": 25,
+      "category": "Privacy & Data Protection",
+      "title": "Missing Cross-Origin Opener Policy",
+      "description": "COOP header missing, allowing cross-origin window access.",
+      "recommendation": "Set Cross-Origin-Opener-Policy to same-origin for better isolation.",
+      "cwe": "CWE-200",
+      "owasp": null,
+      "evidence": null,
+      "timestamp": "2025-09-03T07:37:46.988Z",
+      "risk": "LOW"
+    },
+    {
+      "id": "http_error_403",
+      "severity": "low",
+      "severityScore": 25,
+      "category": "Server Configuration",
+      "title": "HTTP Error 403",
+      "description": "Server returned HTTP 403 error.",
+      "recommendation": "Investigate server configuration and fix the underlying issue.",
+      "cwe": "CWE-200",
+      "owasp": null,
+      "evidence": null,
+      "timestamp": "2025-09-03T07:37:46.988Z",
+      "risk": "LOW"
+    }
+  ],
+  "issuesByCategory": {
+    "Transport Security": [
+      {
+        "id": "missing_hsts",
+        "severity": "high",
+        "severityScore": 75,
+        "category": "Transport Security",
+        "title": "Missing HSTS Header",
+        "description": "HTTP Strict Transport Security (HSTS) header is missing, allowing potential downgrade attacks.",
+        "recommendation": "Add Strict-Transport-Security header with max-age of at least 31536000 seconds (1 year).",
+        "cwe": "CWE-319",
+        "owasp": "A02:2021 – Cryptographic Failures",
+        "evidence": null,
+        "timestamp": "2025-09-03T07:37:46.976Z",
+        "risk": "HIGH"
+      }
+    ],
+    "Security Headers": [
+      {
+        "id": "missing_csp",
+        "severity": "high",
+        "severityScore": 75,
+        "category": "Security Headers",
+        "title": "Missing Content Security Policy",
+        "description": "Content Security Policy (CSP) header is missing, making the site vulnerable to XSS attacks.",
+        "recommendation": "Implement a strict Content Security Policy to prevent XSS and data injection attacks.",
+        "cwe": "CWE-79",
+        "owasp": "A03:2021 – Injection",
+        "evidence": null,
+        "timestamp": "2025-09-03T07:37:46.977Z",
+        "risk": "HIGH"
+      },
+      {
+        "id": "missing_clickjacking_protection",
+        "severity": "medium",
+        "severityScore": 50,
+        "category": "Security Headers",
+        "title": "Missing Clickjacking Protection",
+        "description": "No X-Frame-Options header or CSP frame-ancestors directive found.",
+        "recommendation": "Add X-Frame-Options: DENY or SAMEORIGIN, or use CSP frame-ancestors directive.",
+        "cwe": "CWE-1021",
+        "owasp": "A04:2021 – Insecure Design",
+        "evidence": null,
+        "timestamp": "2025-09-03T07:37:46.977Z",
+        "risk": "MEDIUM"
+      },
+      {
+        "id": "missing_content_type_options",
+        "severity": "medium",
+        "severityScore": 50,
+        "category": "Security Headers",
+        "title": "Missing X-Content-Type-Options",
+        "description": "X-Content-Type-Options header is missing or not set to nosniff.",
+        "recommendation": "Set X-Content-Type-Options: nosniff to prevent MIME type sniffing.",
+        "cwe": "CWE-79",
+        "owasp": null,
+        "evidence": null,
+        "timestamp": "2025-09-03T07:37:46.977Z",
+        "risk": "MEDIUM"
+      }
+    ],
+    "Privacy & Data Protection": [
+      {
+        "id": "missing_referrer_policy",
+        "severity": "low",
+        "severityScore": 25,
+        "category": "Privacy & Data Protection",
+        "title": "Missing Referrer Policy",
+        "description": "Referrer-Policy header is missing, potentially leaking sensitive information.",
+        "recommendation": "Set Referrer-Policy to strict-origin-when-cross-origin or stricter.",
+        "cwe": "CWE-200",
+        "owasp": null,
+        "evidence": null,
+        "timestamp": "2025-09-03T07:37:46.977Z",
+        "risk": "LOW"
+      },
+      {
+        "id": "missing_permissions_policy",
+        "severity": "low",
+        "severityScore": 25,
+        "category": "Privacy & Data Protection",
+        "title": "Missing Permissions Policy",
+        "description": "Permissions-Policy header is missing, allowing unrestricted feature access.",
+        "recommendation": "Implement Permissions-Policy to control browser feature access.",
+        "cwe": "CWE-200",
+        "owasp": null,
+        "evidence": null,
+        "timestamp": "2025-09-03T07:37:46.977Z",
+        "risk": "LOW"
+      },
+      {
+        "id": "missing_corp",
+        "severity": "low",
+        "severityScore": 25,
+        "category": "Privacy & Data Protection",
+        "title": "Missing Cross-Origin Resource Policy",
+        "description": "CORP header missing, allowing cross-origin resource access.",
+        "recommendation": "Set Cross-Origin-Resource-Policy to same-site or same-origin as appropriate.",
+        "cwe": "CWE-200",
+        "owasp": null,
+        "evidence": null,
+        "timestamp": "2025-09-03T07:37:46.988Z",
+        "risk": "LOW"
+      },
+      {
+        "id": "missing_coep",
+        "severity": "info",
+        "severityScore": 0,
+        "category": "Privacy & Data Protection",
+        "title": "Missing Cross-Origin Embedder Policy",
+        "description": "COEP header missing, may affect SharedArrayBuffer and high-resolution timers.",
+        "recommendation": "Consider setting Cross-Origin-Embedder-Policy if using advanced features.",
+        "cwe": "CWE-200",
+        "owasp": null,
+        "evidence": null,
+        "timestamp": "2025-09-03T07:37:46.988Z",
+        "risk": "INFORMATIONAL"
+      },
+      {
+        "id": "missing_coop",
+        "severity": "low",
+        "severityScore": 25,
+        "category": "Privacy & Data Protection",
+        "title": "Missing Cross-Origin Opener Policy",
+        "description": "COOP header missing, allowing cross-origin window access.",
+        "recommendation": "Set Cross-Origin-Opener-Policy to same-origin for better isolation.",
+        "cwe": "CWE-200",
+        "owasp": null,
+        "evidence": null,
+        "timestamp": "2025-09-03T07:37:46.988Z",
+        "risk": "LOW"
+      }
+    ],
+    "Content Security": [
+      {
+        "id": "mixed_content",
+        "severity": "high",
+        "severityScore": 75,
+        "category": "Content Security",
+        "title": "Mixed Content Detected",
+        "description": "Found 1 HTTP resources on HTTPS page, creating security vulnerabilities.",
+        "recommendation": "Replace all HTTP resources with HTTPS equivalents.",
+        "cwe": "CWE-319",
+        "owasp": "A02:2021 – Cryptographic Failures",
+        "evidence": [
+          "http://"
+        ],
+        "timestamp": "2025-09-03T07:37:46.977Z",
+        "risk": "HIGH"
+      }
+    ],
+    "Server Configuration": [
+      {
+        "id": "http_error_403",
+        "severity": "low",
+        "severityScore": 25,
+        "category": "Server Configuration",
+        "title": "HTTP Error 403",
+        "description": "Server returned HTTP 403 error.",
+        "recommendation": "Investigate server configuration and fix the underlying issue.",
+        "cwe": "CWE-200",
+        "owasp": null,
+        "evidence": null,
+        "timestamp": "2025-09-03T07:37:46.988Z",
+        "risk": "LOW"
+      }
+    ]
+  },
+  "issuesBySeverity": {
+    "critical": 0,
+    "high": 3,
+    "medium": 2,
+    "low": 5,
+    "info": 1
+  }
+}

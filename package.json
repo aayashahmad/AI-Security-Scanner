@@ -5,8 +5,11 @@
   "main": "src/index.js",
   "type": "module",
   "scripts": {
-    "start": "node src/index.js",
-    "server": "node src/server.js",
+    "start": "node src/hacker-server.js",
+    "server": "node src/hacker-server.js",
+    "hacker": "node src/hacker-server.js",
+    "basic": "node src/server.js",
+    "dev": "nodemon src/hacker-server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [

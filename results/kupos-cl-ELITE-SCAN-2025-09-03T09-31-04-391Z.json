@@ -1,0 +1,60 @@
+{
+  "metadata": {
+    "scannedUrl": "https://kupos.cl",
+    "scanDate": "September 3, 2025 at 03:01 PM",
+    "timestamp": "2025-09-03T09-31-04-391Z",
+    "generatedBy": "Ayash Ahmad - Elite Security Researcher",
+    "contact": "bhatashu666@gmail.com",
+    "totalPages": 1,
+    "overallScore": 54,
+    "scanDuration": "1s"
+  },
+  "results": [
+    {
+      "url": "https://kupos.cl",
+      "issues": [
+        {
+          "id": "missing_hsts",
+          "severity": "high",
+          "details": "Add Strict-Transport-Security"
+        },
+        {
+          "id": "missing_csp",
+          "severity": "high",
+          "details": "Add Content-Security-Policy"
+        },
+        {
+          "id": "x_content_type_options",
+          "severity": "medium",
+          "details": "Set X-Content-Type-Options: nosniff"
+        },
+        {
+          "id": "clickjacking",
+          "severity": "medium",
+          "details": "Add X-Frame-Options or frame-ancestors in CSP"
+        },
+        {
+          "id": "missing_referrer_policy",
+          "severity": "low",
+          "details": "Add Referrer-Policy"
+        },
+        {
+          "id": "missing_permissions_policy",
+          "severity": "low",
+          "details": "Add Permissions-Policy"
+        },
+        {
+          "id": "missing_corp",
+          "severity": "low",
+          "details": "Add Cross-Origin-Resource-Policy"
+        }
+      ],
+      "links": [],
+      "score": {
+        "total": 120,
+        "penalty": 55,
+        "pct": 54
+      }
+    }
+  ]
+}
